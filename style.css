@@ -1,4 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
-html {
-    background-color: beige;
+
+:root {
+    --primary-color : #fcfc2b57;
+    --primary-color-dark: #b2b200;
+    --secondary-color : #d2691e;
+    --white: #fff;
+    --black: #000000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-family: 'Press Start 2P', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+}
+
+a {
+    color: var(--white);
+}
+
+.btn {
+    margin-top: 36px;
+    border: 0;
+    background-color: var(--white);
+    padding: 15px 20px;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--primary-color-dark);
+}
+
+.btn:hover {
+    opacity: 0.9;
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: margin 0.5s ease-out;
+}
+
+.screen.up {
+    margin-top: -100vh;
+}
+
+h1 {
+    color: var(--primary-color-dark);
+}
+
+.corruptor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.corruptor-list li {
+    margin: 10px;
+}
+
+.choose-corruptor-btn {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    width: 150px;
+    height: 150px;
+}
+
+.choose-corruptor-btn:hover {
+    background-color: #fff;
+    color: #516dff;
+}
+
+.choose-corruptor-btn:active {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.choose-corruptor-btn img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
