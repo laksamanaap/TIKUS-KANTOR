@@ -30,7 +30,7 @@ a {
 .btn {
     margin-top: 36px;
     border: 0;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color-dark);
     padding: 15px 20px;
     font-family: inherit;
     cursor: pointer;
@@ -39,7 +39,7 @@ a {
 
 .btn:hover {
     opacity: 0.9;
-    background-color: var(--primary-color-dark);
+    background-color: var(--secondary-color);
     color: var(--white);
 }
 
@@ -63,6 +63,7 @@ a {
 
 h1 {
     color: var(--primary-color-dark);
+    line-height: 1.5;
 }
 
 .corruptor-list {
