@@ -3,6 +3,7 @@ const screen = document.getElementsByClassName("screen");
 const choose_corruptor = document.querySelectorAll(".choose-corruptor-btn");
 const timeFunc = document.getElementById("time");
 const scoreFunc = document.getElementById("score");
+const game_container = document.getElementById("game-container");
 let score = 0;
 let seconds = 0;
 let selected_corruptor = {};
@@ -20,9 +21,9 @@ choose_corruptor.forEach((btn, index) => {
         const alt = img.getAttribute('alt')
         selected_corruptor = { src, alt } // Destructure
         screen[1].classList.add('up')
+        setTimeout(createCorruptor, 1000)    
         startGame();
-        // console.log(index);
-        // document.querySelector(".tes").innerHTML = selected_corruptor.alt[index];
+        
     })
 })
 
@@ -39,25 +40,56 @@ choose_corruptor.forEach((btn, index) => {
 //   });
 // }
 
+
 function startGame() {
-  // document.querySelector(".tes").innerHTML = 'Game Started';
-  setInterval(increaseTime,1000);
+  setInterval(increaseTime, 1000);
 }
 
 function increaseTime() {
-  let minute = Math.floor(seconds / 60); 
+  let minute = Math.floor(seconds / 60);
   let second = Math.floor(seconds % 60);
-  console.log(minute, second);
   minute = minute < 10 ? `0${minute}` : minute;
   second = second < 10 ? `0${second}` : second;
-  timeFunc.innerHTML = `Time: ${minute}:${second}` // Template Literals
   seconds++
+  timeFunc.innerHTML = `Time: ${minute}:${second}`;
+
+  // console.log(second)
+  // second = second === '02' ? message.classList.add("visible") : setTimeout(() => { message.classList.add("unvisible"); }, 4000);
+  
+  if (second === 20) {
+    message.classList.add("visible");
+    setTimeout(() => {
+      message.classList.add("unvisible");
+    }, 5000);
+  }
+
+}
+
+function getRandomPlace() {
+  const width = window.innerWidth
+  const height = window.innerHeight
+  const x = Math.random() * (width - 200) + 100
+  const y = Math.random() * (width - 200) + 100
+  return { x, y };
 }
 
 function createCorruptor() {
+  const corruptor = document.createElement('div');
+  corruptor.classList.add("corruptor");
+  const { x, y } = getRandomPlace();
+  corruptor.style.left = `${x}px`;
+  corruptor.style.top = `${y}px`;
   
+  corruptor.innerHTML = `<img src="${selected_corruptor.src}" alt="${selected_corruptor.alt}"  style=" transform: rotate(${Math.random() * 360}deg); width:75px;"  />`
+  game_container.appendChild(corruptor);
+  // addCorruptor();
 }
-function getRandomCorruptor() {}
+
+function addCorruptor() { 
+  setTimeout(createCorruptor, 1000);
+  setTimeout(createCorruptor, 2500);
+}
+
+
+function increaseScore() { }
 function catchCorruptor() { }
-function addCorruptor() { }
-function increaseScore() {}

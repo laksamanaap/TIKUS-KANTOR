@@ -3,6 +3,7 @@
 :root {
     --primary-color : #fcfc2b57;
     --primary-color-dark: #b2b200;
+    --primary-color-darker: #7e7e00;
     --secondary-color : #d2691e;
     --white: #fff;
     --black: #000000;
@@ -65,13 +66,13 @@ a {
 .start__container-left-pattern {
     display: block;
     left: 0;
-    transform: translate(-4px, -47.9px);
+    transform: translate(-3px, -47.9px);
     position: absolute;
     top: 0;
     clip-path: polygon(100% 0, 0 100%, 100% 100%);
     width: 30px;
     height: 44.6px;
-    background-color: #666600e3;
+    background-color: var(--primary-color-darker);
     /* display: none !important; */
 }
 
@@ -84,9 +85,10 @@ a {
     clip-path: polygon(0 0, 0 100%, 100% 100%);
     width: 30px;
     height: 35px;
-    background-color: #666600e3;
+    background-color: var(--primary-color-light);
     display: none !important;
 } */
+
 
 .start__container-span {
     display: flex;
@@ -116,6 +118,10 @@ a {
 
 .screen.up {
     margin-top: -100vh;
+}
+
+.screen.game-container {
+    position: relative;
 }
 
 h1 {
@@ -162,4 +168,43 @@ h1 {
     width: 100px;
     height: 100px;
     object-fit: contain;
+}
+
+.message {
+    line-height: 1.7;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 20px;
+    z-index: 100;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    transition: all transform 0.4s ease-in;
+}
+
+.message.visible {
+    transform: translate(-50%, 150%);
+    opacity: 1;
+    transition: transform 0.4s ease-out;
+}
+
+.message.unvisible {
+    transform: translate(-50%, -150%);
+    opacity: 1;
+    transition: transform 0.4s ease-out;
+}
+
+.corruptor {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s ease-in-out;
 }
