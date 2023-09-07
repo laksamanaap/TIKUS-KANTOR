@@ -6,7 +6,7 @@ const scoreFunc = document.getElementById("score");
 const game_container = document.getElementById("game-container");
 let score = 0;
 let seconds = 0;
-let selected_corruptor = {};
+// let selected_corruptor = {};
 
 // Swipe Up
 start.addEventListener("click", () => {
@@ -23,7 +23,6 @@ choose_corruptor.forEach((btn, index) => {
         screen[1].classList.add('up')
         setTimeout(createCorruptor, 1000)    
         startGame();
-        
     })
 })
 
@@ -82,12 +81,12 @@ function createCorruptor() {
   
   corruptor.innerHTML = `<img src="${selected_corruptor.src}" alt="${selected_corruptor.alt}"  style=" transform: rotate(${Math.random() * 360}deg); width:75px;"  />`
   game_container.appendChild(corruptor);
-  // addCorruptor();
+  addCorruptor();
 }
 
 function addCorruptor() { 
   setTimeout(createCorruptor, 1000);
-  setTimeout(createCorruptor, 2500);
+  // setTimeout(createCorruptor, 2500);
 }
 
 
