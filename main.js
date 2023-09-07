@@ -8,21 +8,28 @@ let score = 0;
 let seconds = 0;
 // let selected_corruptor = {};
 
+
 // Swipe Up
 start.addEventListener("click", () => {
-    screen[0].classList.add("up");
-    // console.log("click");
+  screen[0].classList.add("up");
+  // var music = new Audio("assets/audio/TikusKantor-IwanFals.mp3")
+  // music.volume = 0.3; //  30%
+  // music.play();
+  // music.addEventListener('ended', function() {
+  //   this.currentTime = 0;
+  //   this.play();
+  // }, false);
 })
 
 choose_corruptor.forEach((btn, index) => {
   btn.addEventListener("click", () => {
-        const img = btn.querySelector('img')
-        const src = img.getAttribute('src')
-        const alt = img.getAttribute('alt')
-        selected_corruptor = { src, alt } // Destructure
-        screen[1].classList.add('up')
-        setTimeout(createCorruptor, 1000)    
-        startGame();
+    const img = btn.querySelector('img')
+    const src = img.getAttribute('src')
+    const alt = img.getAttribute('alt')
+    selected_corruptor = { src, alt } // Destructure
+    screen[1].classList.add('up')
+    setTimeout(createCorruptor, 1000)    
+    startGame();
     })
 })
 
