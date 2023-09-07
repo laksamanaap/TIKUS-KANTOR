@@ -36,7 +36,6 @@ choose_corruptor.forEach((btn, index) => {
 //     const alt = img.getAttribute('alt');
 //     const selected_corruptor = { src, alt }; // Destructure
 //     screen[1].classList.add('up');
-      
 //   });
 // }
 
@@ -46,16 +45,19 @@ function startGame() {
 }
 
 function increaseTime() {
-  let minute = Math.floor(seconds / 60);
-  let second = seconds % 60;
+  let minute = Math.floor(seconds / 60); 
+  let second = Math.floor(seconds % 60);
+  console.log(minute, second);
   minute = minute < 10 ? `0${minute}` : minute;
   second = second < 10 ? `0${second}` : second;
   timeFunc.innerHTML = `Time: ${minute}:${second}` // Template Literals
   seconds++
 }
 
-function createCorruptor() {}
-function getRandomCorruptor() { }
+function createCorruptor() {
+  
+}
+function getRandomCorruptor() {}
 function catchCorruptor() { }
 function addCorruptor() { }
 function increaseScore() {}
