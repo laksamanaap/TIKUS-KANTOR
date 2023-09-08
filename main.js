@@ -4,6 +4,7 @@ const choose_corruptor = document.querySelectorAll(".choose-corruptor-btn");
 const timeFunc = document.getElementById("time");
 const scoreFunc = document.getElementById("score");
 const game_container = document.getElementById("game-container");
+const audio_badge = document.getElementById("audio_badge");
 let score = 0;
 let seconds = 0;
 // let selected_corruptor = {};
@@ -12,13 +13,21 @@ let seconds = 0;
 // Swipe Up
 start.addEventListener("click", () => {
   screen[0].classList.add("up");
-  // var music = new Audio("assets/audio/TikusKantor-IwanFals.mp3")
-  // music.volume = 0.3; //  30%
-  // music.play();
-  // music.addEventListener('ended', function() {
-  //   this.currentTime = 0;
-  //   this.play();
-  // }, false);
+  
+  var music = new Audio("assets/audio/TikusKantor-IwanFals.mp3")
+  music.volume = 0.3; //  30%
+  music.play();
+  music.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+  }, false);
+
+  setTimeout(() => {
+    audio_badge.classList.add("visible");
+  }, 2000);
+  setTimeout(() => {
+    audio_badge.classList.add("unvisible");
+  }, 8000);
 })
 
 choose_corruptor.forEach((btn, index) => {
@@ -93,6 +102,7 @@ function createCorruptor() {
 
 function addCorruptor() { 
   setTimeout(createCorruptor, 1000);
+  setTimeout(createCorruptor, 2000);
   // setTimeout(createCorruptor, 2500);
 }
 
