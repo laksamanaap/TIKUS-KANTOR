@@ -7,7 +7,7 @@ const game_container = document.getElementById("game-container");
 const audio_badge = document.getElementById("audio_badge");
 let score = 0;
 let seconds = 0;
-// let selected_corruptor = {};
+let selected_corruptor = {};
 
 
 // Swipe Up
@@ -36,8 +36,8 @@ choose_corruptor.forEach((btn, index) => {
     const src = img.getAttribute('src')
     const alt = img.getAttribute('alt')
     selected_corruptor = { src, alt } // Destructure
-    screen[1].classList.add('up')
-    setTimeout(createCorruptor, 1000)    
+    screen[1].classList.add('up');
+    setTimeout(createCorruptor, 1000);    
     startGame();
     })
 })
@@ -54,7 +54,6 @@ choose_corruptor.forEach((btn, index) => {
 //     screen[1].classList.add('up');
 //   });
 // }
-
 
 function startGame() {
   setInterval(increaseTime, 1000);
@@ -96,16 +95,27 @@ function createCorruptor() {
   corruptor.style.top = `${y}px`;
   
   corruptor.innerHTML = `<img src="${selected_corruptor.src}" alt="${selected_corruptor.alt}"  style=" transform: rotate(${Math.random() * 360}deg); width:75px;"  />`
+  
+  corruptor.addEventListener('click', catchCorruptor)
+  
   game_container.appendChild(corruptor);
-  addCorruptor();
+  // addCorruptor();
 }
 
 function addCorruptor() { 
   setTimeout(createCorruptor, 1000);
-  setTimeout(createCorruptor, 2000);
-  // setTimeout(createCorruptor, 2500);
+  setTimeout(createCorruptor, 1500);
+}
+
+function catchCorruptor() {
+  // console.log("clicked")
+  increaseScore();
+  setTimeout(() => this.remove(), 1000)
+  addCorruptor();
 }
 
 
-function increaseScore() { }
-function catchCorruptor() { }
+function increaseScore() {
+  score++;
+  scoreFunc.innerHTML = `Score: ${score}`
+ }
