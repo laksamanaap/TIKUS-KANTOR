@@ -105,6 +105,7 @@ function createCorruptor() {
 function addCorruptor() { 
   setTimeout(createCorruptor, 1000);
   setTimeout(createCorruptor, 1500);
+  setTimeout(createCorruptor, 2000);
 }
 
 function catchCorruptor() {
