@@ -214,7 +214,7 @@ h1 {
     padding: 16px;
     top: 0;
     left: 0;
-    transform: translate(0, 71px);
+    transform: translate(0, 33px);
     position: absolute;
     -webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 20% 100%, 0 100%, 0% 20%);
     clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 20% 100%, 0 100%, 0% 20%);
@@ -224,7 +224,7 @@ h1 {
 
 .audio-badge__wrapper.visible {
     opacity: 1;
-    transform: translate(20%, 100%);
+    transform: translate(20%, 40%);
     transition: all 1s ease-out;
 }
 

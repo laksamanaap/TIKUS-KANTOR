@@ -24,10 +24,10 @@ start.addEventListener("click", () => {
 
   setTimeout(() => {
     audio_badge.classList.add("visible");
-  }, 2000);
+  }, 1000);
   setTimeout(() => {
     audio_badge.classList.add("unvisible");
-  }, 8000);
+  }, 8500);
 })
 
 choose_corruptor.forEach((btn, index) => {
