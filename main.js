@@ -5,6 +5,9 @@ const timeFunc = document.getElementById("time");
 const scoreFunc = document.getElementById("score");
 const game_container = document.getElementById("game-container");
 const audio_badge = document.getElementById("audio_badge");
+var start_game = false;
+var isTimeIncrease = false;
+var isCorruptorSpawn = false;
 let score = 0;
 let seconds = 0;
 let selected_corruptor = {};
@@ -13,7 +16,8 @@ let selected_corruptor = {};
 // Swipe Up
 start.addEventListener("click", () => {
   screen[0].classList.add("up");
-  
+  !start_game;
+
   var music = new Audio("assets/audio/TikusKantor-IwanFals.mp3")
   music.volume = 0.3; //  30%
   music.play();
@@ -27,7 +31,7 @@ start.addEventListener("click", () => {
   }, 1000);
   setTimeout(() => {
     audio_badge.classList.add("unvisible");
-  }, 8500);
+  }, 9000);
 })
 
 choose_corruptor.forEach((btn, index) => {
@@ -56,8 +60,17 @@ choose_corruptor.forEach((btn, index) => {
 // }
 
 function startGame() {
-  setInterval(increaseTime, 1000);
+  if (!start_game) {
+    setInterval(increaseTime, 1000);
+  } 
 }
+
+// function gameOver() {
+//   start_game = false;
+//   score = 0;
+//   scoreFunc.innerHTML = `Score: ${score}`
+//   console.log("game-over tes");
+// }
 
 function increaseTime() {
   let minute = Math.floor(seconds / 60);
@@ -67,7 +80,8 @@ function increaseTime() {
   seconds++
   timeFunc.innerHTML = `Time: ${minute}:${second}`;
 
-  // console.log(second)
+  console.log(second)
+  // console.log(minute)
   // second = second === '02' ? message.classList.add("visible") : setTimeout(() => { message.classList.add("unvisible"); }, 4000);
   
   if (second === 15) {
@@ -78,14 +92,18 @@ function increaseTime() {
     }, 5000);
   }
 
+  // if (second === 10) {
+  //   gameOver();
+  // }
 }
 
 function getRandomPlace() {
   const width = window.innerWidth
   const height = window.innerHeight
-  const x = Math.random() * (width - 150) + 100
-  const y = Math.random() * (width - 150) + 100
-  // console.log(x,y);
+  const x = Math.random() * (width - height) 
+  const y = Math.random() * (width - height) 
+  console.log(x,y);
+  console.log(width);
   return { x, y };
 }
 
@@ -106,7 +124,7 @@ function createCorruptor() {
 
 function addCorruptor() { 
   setTimeout(createCorruptor, 1000);
-  setTimeout(createCorruptor, 1500);
+  setTimeout(createCorruptor, 1000);
   setTimeout(createCorruptor, 2000);
 }
 
@@ -129,4 +147,5 @@ function increaseScore() {
     message_scored.classList.add("unvisible");
     }, 5000);
   }
- }
+}
+ 
