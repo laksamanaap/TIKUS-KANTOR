@@ -70,8 +70,9 @@ function increaseTime() {
   // console.log(second)
   // second = second === '02' ? message.classList.add("visible") : setTimeout(() => { message.classList.add("unvisible"); }, 4000);
   
-  if (second === 20) {
+  if (second === 15) {
     message.classList.add("visible");
+    // console.log(message)
     setTimeout(() => {
       message.classList.add("unvisible");
     }, 5000);
@@ -82,8 +83,9 @@ function increaseTime() {
 function getRandomPlace() {
   const width = window.innerWidth
   const height = window.innerHeight
-  const x = Math.random() * (width - 200) + 100
-  const y = Math.random() * (width - 200) + 100
+  const x = Math.random() * (width - 150) + 100
+  const y = Math.random() * (width - 150) + 100
+  // console.log(x,y);
   return { x, y };
 }
 
@@ -94,7 +96,7 @@ function createCorruptor() {
   corruptor.style.left = `${x}px`;
   corruptor.style.top = `${y}px`;
   
-  corruptor.innerHTML = `<img src="${selected_corruptor.src}" alt="${selected_corruptor.alt}"  style=" transform: rotate(${Math.random() * 360}deg); width:75px;"  />`
+  corruptor.innerHTML = `<img src="${selected_corruptor.src}" alt="${selected_corruptor.alt}"  style=" transform: rotate(${Math.random() * 360}deg); width:100px;"  />`
   
   corruptor.addEventListener('click', catchCorruptor)
   
@@ -111,12 +113,20 @@ function addCorruptor() {
 function catchCorruptor() {
   // console.log("clicked")
   increaseScore();
-  setTimeout(() => this.remove(), 1000)
+  this.remove();
   addCorruptor();
 }
-
 
 function increaseScore() {
   score++;
   scoreFunc.innerHTML = `Score: ${score}`
+
+  console.log(score);
+
+  if (score === 50) {
+    message_scored.classList.add("visible");
+    setTimeout(() => {
+    message_scored.classList.add("unvisible");
+    }, 5000);
+  }
  }
