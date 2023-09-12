@@ -62,6 +62,7 @@ choose_corruptor.forEach((btn, index) => {
 function startGame() {
   if (!start_game) {
     setInterval(increaseTime, 1000);
+    start_game = true;
   } 
 }
 
@@ -114,7 +115,7 @@ function createCorruptor() {
   corruptor.style.left = `${x}px`;
   corruptor.style.top = `${y}px`;
   
-  corruptor.innerHTML = `<img src="${selected_corruptor.src}" alt="${selected_corruptor.alt}"  style=" transform: rotate(${Math.random() * 360}deg); width:100px;"  />`
+  corruptor.innerHTML = `<img src="${selected_corruptor.src}" alt="${selected_corruptor.alt}"  style=" transform: rotate(${Math.random() * 360}deg); width:125px;"  />`
   
   corruptor.addEventListener('click', catchCorruptor)
   
