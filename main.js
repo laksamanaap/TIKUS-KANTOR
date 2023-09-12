@@ -31,7 +31,7 @@ start.addEventListener("click", () => {
   }, 1000);
   setTimeout(() => {
     audio_badge.classList.add("unvisible");
-  }, 9000);
+  }, 5000);
 })
 
 choose_corruptor.forEach((btn, index) => {
@@ -79,6 +79,8 @@ function increaseTime() {
   minute = minute < 10 ? `0${minute}` : minute;
   second = second < 10 ? `0${second}` : second;
   seconds++
+  timeFunc.classList.add("visible");
+  scoreFunc.classList.add("visible");
   timeFunc.innerHTML = `Time: ${minute}:${second}`;
 
   console.log(second)
@@ -138,6 +140,7 @@ function catchCorruptor() {
 
 function increaseScore() {
   score++;
+  scoreFunc.classList.add("visible");
   scoreFunc.innerHTML = `Score: ${score}`
 
   console.log(score);

@@ -297,6 +297,49 @@ h1 {
     animation-delay: 500ms;
 }
 
+.time {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(10%, 75%);
+    left: 0;
+    color: var(--black);
+    z-index: 100;
+}
+
+.time.visible {
+    opacity: 1;
+    color: var(--black);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translate(10%, 75%);
+    transition: all 1s ease-out;
+}
+
+.score {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(-10%, 75%);
+    right: 0;
+    color: var(--black);
+    z-index: 100;
+}
+
+.score.visible {
+    z-index: 100;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--black);
+    transform: translate(-10%, 75%);
+    transform: translate(-10%, 75%);
+    transition: all 1s ease-out;
+}
+
 @keyframes bar {
     0% {
         height: 15px;
