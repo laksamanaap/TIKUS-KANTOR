@@ -83,7 +83,7 @@ function increaseTime() {
   scoreFunc.classList.add("visible");
   timeFunc.innerHTML = `Time: ${minute}:${second}`;
 
-  console.log(second)
+  // console.log(second)
   // console.log(minute)
   // second = second === '02' ? message.classList.add("visible") : setTimeout(() => { message.classList.add("unvisible"); }, 4000);
   
@@ -103,10 +103,13 @@ function increaseTime() {
 function getRandomPlace() {
   const width = window.innerWidth
   const height = window.innerHeight
-  const x = Math.random() * (width - height) 
-  const y = Math.random() * (width - height) 
+  // const x = Math.random() * (width - 200) + 100
+  // const y = Math.random() * (height - 200) + 100
+  const x = Math.random() * width
+  const y = Math.random() * height  
   console.log(x,y);
   console.log(width);
+  console.log(height);
   return { x, y };
 }
 
@@ -143,7 +146,7 @@ function increaseScore() {
   scoreFunc.classList.add("visible");
   scoreFunc.innerHTML = `Score: ${score}`
 
-  console.log(score);
+  // console.log(score);
 
   if (score === 50) {
     message_scored.classList.add("visible");
